@@ -5,7 +5,7 @@ Python execution. Repair is a preview until an explicit version-checked apply.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 from hashlib import sha256
 from typing import Any, Mapping
@@ -164,16 +164,12 @@ class CDO:
     def _affected(self, target: str) -> tuple[str, ...]:
         if target not in self._cells:
             raise KeyError(target)
+        # add() accepts existing dependencies only, so insertion order is topological.
+        # Unaffected parents are valid dependencies and must not block propagation.
         affected = {target}
-        remaining = set(self._cells) - affected
         ordered = [target]
-        while remaining:
-            ready = sorted(key for key in remaining if any(parent in affected for parent in self._cells[key].dependencies)
-                           and all(parent not in remaining for parent in self._cells[key].dependencies))
-            if not ready:
-                break
-            for key in ready:
-                remaining.remove(key)
+        for key, cell in self._cells.items():
+            if key != target and any(parent in affected for parent in cell.dependencies):
                 affected.add(key)
                 ordered.append(key)
         return tuple(ordered)
