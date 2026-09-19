@@ -1,0 +1,10 @@
+iNNOVULIS / i™ Counterfactual Data Organism — Core Source Notice
+Copyright (c) 2026 AdvanceDisrto. All rights reserved.
+
+No copyright or patent license is granted to the core software by this notice. In particular, publication of the source does not grant rights to use, modify, distribute, sublicense, or operate the core software in production, except as expressly permitted by a separately executed agreement or applicable law. Access to this public GitHub repository remains subject to GitHub's Terms of Service, including rights to view and fork where applicable.
+
+This notice applies to cdo_core/, cdo_api/, tests/, and examples/ unless a file expressly states otherwise. The sdk/ subtree is separately licensed under Apache License 2.0 (see sdk/LICENSE). Third-party components retain their own licenses.
+
+A proposed small-business/free-use license and enterprise agreement are provided as non-operative discussion drafts in legal/; they grant no rights until adopted by the verified rights holder following legal review. Do not characterize this repository as open source or as licensed under BSL 1.1.
+
+The copyright claimant, chain of title, trademark ownership, patent rights, and enforceability of any future license must be confirmed by qualified counsel. For commercial permissions contact the repository owner through GitHub.
